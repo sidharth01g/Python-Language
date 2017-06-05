@@ -1,0 +1,16 @@
+<h2>Details of question id : {{ question_id }}</h2>
+{% if question %}
+    <ul>
+        <li>Question: {{ question.question_text }}</li>
+        <li>Timestamp: {{ question.publication_date }}</li>
+
+        <ul style="list-style-type:square">
+            <h3>Choices</h3>
+            {% for choice in question.choice_set.all %}
+                <li>{{ choice.choice_text }}</li>
+            {% endfor %}
+        </ul>
+    </ul>
+{% else %}
+    <p>Details not available!</p>
+{% endif  %}

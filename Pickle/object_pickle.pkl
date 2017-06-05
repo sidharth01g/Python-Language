@@ -1,0 +1,13 @@
+(itest_classes
+Employee
+p0
+(dp1
+S'name'
+p2
+S'Alice'
+p3
+sS'id'
+p4
+S'e101'
+p5
+sb.

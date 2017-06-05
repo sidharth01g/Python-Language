@@ -1,0 +1,89 @@
+0. Set up virtualenv for python3
+
+$ sudo apt-get install python3-pip
+$ # Prefix the next command with sudo if it gives a permission denied error
+$ pip3 install virtualenv
+$ virtualenv --python=`which python3` ~/.virtualenvs/djangodev
+$ source ~/.virtualenvs/djangodev/bin/activate
+If the source command is not available, you can try using a dot instead:
+
+$ . ~/.virtualenvs/djangodev/bin/activate
+
+
+
+1. Create a project
+
+    django-admin startproject mysite
+
+sidharth@sidharth-550P5C-550P7C:~/Dropbox/Academic/Concepts/Django$ find .
+.
+./steps.txt
+./mysite
+./mysite/mysite
+./mysite/mysite/settings.py
+./mysite/mysite/urls.py
+./mysite/mysite/__init__.py
+./mysite/mysite/wsgi.py
+./mysite/manage.py
+
+
+2. Start the server
+
+sidharth@sidharth-550P5C-550P7C:~/Dropbox/Academic/Concepts/Django/mysite$ python manage.py runserver
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 13 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+
+October 22, 2016 - 08:50:16
+Django version 1.10.1, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+
+3. Specify port:
+
+sidharth@sidharth-550P5C-550P7C:~/Dropbox/Academic/Concepts/Django/mysite$ python manage.py runserver 8080
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 13 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+
+October 22, 2016 - 08:53:16
+Django version 1.10.1, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8080/
+Quit the server with CONTROL-C.
+
+
+4. Specify IP address, port
+
+sidharth@sidharth-550P5C-550P7C:~/Dropbox/Academic/Concepts/Django/mysite$ python manage.py runserver 192.168.0.5:8080
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 13 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+
+October 22, 2016 - 08:54:45
+Django version 1.10.1, using settings 'mysite.settings'
+Starting development server at http://192.168.0.5:8080/
+Quit the server with CONTROL-C.
+
+
+5. Set up DB
+$ python manage.py migrate
+
+6. Create application
+$ python manage.py startapp polls
+
+
+7. Migrations are very powerful and let you change your models over time, as you develop your project, without the need to delete your database or tables and make new ones - it specializes in upgrading your database live, without losing data. We’ll cover them in more depth in a later part of the tutorial, but for now, remember the three-step guide to making model changes:
+
+Change your models (in models.py).
+Run python manage.py makemigrations to create migrations for those changes
+Run python manage.py migrate to apply those changes to the database.

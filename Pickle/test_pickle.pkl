@@ -1,0 +1,13 @@
+(dp0
+I1
+S'One'
+p1
+sI2
+S'Two'
+p2
+s.(lp0
+S'abc'
+p1
+aS'def'
+p2
+a.
